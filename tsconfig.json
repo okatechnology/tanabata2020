@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "strict": true,
+    "jsx": "react",
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
+    "downlevelIteration": true
+  },
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}
