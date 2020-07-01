@@ -30,9 +30,13 @@ export default (): Configuration => ({
         use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
       },
       {
-        test: /\.css?$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.(png|php)$/i,
+        use: ['file-loader'],
+      },
     ],
   },
   resolve: {

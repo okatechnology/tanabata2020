@@ -7,7 +7,8 @@ use tanabataDb;
 create table tanzakuInfo (
   id int auto_increment not null primary key,
   name varchar(255) not null,
-  content varchar(2240) not null
+  contents varchar(2240) not null,
+  color varchar(255) not null
 );
 
 create user user identified by 'password';

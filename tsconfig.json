@@ -8,7 +8,7 @@
     "jsx": "react",
     "typeRoots": [
       "node_modules/@types",
-      "src/types"
+      "src/front/types"
     ],
     "downlevelIteration": true
   },
