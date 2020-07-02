@@ -10,7 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "@okatechnology/eslint-config": "0.0.12",
-    "@types/axios": "^0.14.0",
     "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/react": "^16.9.41",
     "@types/styled-components": "^5.1.0",
@@ -31,7 +30,6 @@
   },
   "dependencies": {
     "@types/react-dom": "^16.9.8",
-    "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "sanitize.css": "^11.0.1",

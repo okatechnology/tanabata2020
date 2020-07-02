@@ -13,7 +13,7 @@ export const TanzakuContainer = ({ afterPraying }: TanzakuContainerProps) => {
   useEffect(() => {
     (async () => {
       if (afterPraying) return;
-      const { data } = await getTanzaku();
+      const data = await getTanzaku();
       setTanzakuData(data);
     })();
   }, [afterPraying]);

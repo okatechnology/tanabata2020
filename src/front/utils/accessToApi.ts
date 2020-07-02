@@ -1,4 +1,3 @@
-import axios from 'axios';
 import registerTanzakuApi from '../../api/registerTanzaku.php';
 import getTanzakuApi from '../../api/getTanzakuInfo.php';
 
@@ -9,11 +8,16 @@ interface PrayResult {
 }
 
 export const prayToApi = async (prayData: PrayPost) => {
-  return await axios.post<PrayResult>(`${registerTanzakuApi}`, prayData);
+  const result = await fetch(registerTanzakuApi, {
+    method: 'POST',
+    body: JSON.stringify(prayData),
+  });
+  return result.json() as Promise<PrayResult>;
 };
 
-interface GetTanzakuResult extends Tanzaku {}
+interface GetTanzakuResult extends Array<Tanzaku> {}
 
 export const getTanzaku = async () => {
-  return await axios.get<GetTanzakuResult[]>(`${getTanzakuApi}`);
+  const result = await fetch(getTanzakuApi);
+  return result.json() as Promise<GetTanzakuResult>;
 };
