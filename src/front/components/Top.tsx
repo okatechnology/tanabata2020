@@ -14,7 +14,7 @@ export const Top = () => {
     <Wrapper>
       <NightBg />
       <SasaBg style={{ backgroundImage: `url(${sasaImg})` }} />
-      <TanzakuContainer />
+      <TanzakuContainer afterPraying={afterPraying} />
       <ScrolledArea
         handlePrayedText={setPrayedText}
         handleAfterPraying={setAfterPraying}

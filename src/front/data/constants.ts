@@ -29,10 +29,12 @@ export const colorsData: ColorObject = {
   },
 };
 
-export const tanzakuColors: Partial<Color>[] = [
-  'purple',
+export const colors = ['purple', 'green', 'lightBlue', 'pink', 'yellow', 'blue'] as const;
+
+export const tanzakuColors: TanzakuColor[] = [
   'green',
   'lightBlue',
   'pink',
+  'purple',
   'yellow',
 ];

@@ -1,10 +1,11 @@
-type Color = 'pink' | 'lightBlue' | 'purple' | 'yellow' | 'green' | 'blue';
+type Color = typeof import('../data/constants').colors[number];
+type TanzakuColor = Exclude<Color, 'blue'>;
 
 interface Tanzaku {
   id: number;
   contents: string;
   name: string;
-  color: Exclude<Color, 'blue'>;
+  color: TanzakuColor;
 }
 
 interface ColorInfo {

@@ -1,16 +1,21 @@
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { FORM_HEIGHT, FORM_WIDTH, colorsData, tanzakuColors } from '../data/constants';
+import { prayToApi } from '../utils/accessToApi';
+import { deriveHexFromName } from '../utils/deriveHexFromName';
+import { getRandomInt } from '../utils/getRandomInt';
 
 interface FormToPrayProps {
   handlePrayedText: (text: string) => void;
   handleAfterPraying: (value: boolean) => void;
 }
 
+const randomColorNumber = getRandomInt(5);
+
 export const FormToPray = ({ handlePrayedText, handleAfterPraying }: FormToPrayProps) => {
   const [contents, setContents] = useState('');
   const [name, setName] = useState('');
-  const [color, setColor] = useState(colorsData.purple.hex);
+  const [color, setColor] = useState<TanzakuColor>(tanzakuColors[randomColorNumber]);
 
   return (
     <Wrapper>
@@ -23,10 +28,10 @@ export const FormToPray = ({ handlePrayedText, handleAfterPraying }: FormToPrayP
                   <LabelHeader>{colorsData[colorName].jaColorName}</LabelHeader>
                   <RadioButton
                     name="tanzakuColor"
-                    value={colorsData[colorName].hex}
+                    value={colorName}
                     type="radio"
                     onChange={(e) => {
-                      setColor(e.target.value);
+                      setColor(e.target.value as TanzakuColor);
                     }}
                   />
                 </RadioButtonLabel>
@@ -65,10 +70,11 @@ export const FormToPray = ({ handlePrayedText, handleAfterPraying }: FormToPrayP
         onClick={(e) => {
           e.preventDefault();
           if (name.length === 0 || contents.length === 0) return;
-          handlePrayedText(contents);
-          handleAfterPraying(true);
           setContents('');
           setName('');
+          prayToApi({ name, color, contents });
+          handlePrayedText(contents);
+          handleAfterPraying(true);
         }}
       />
     </Wrapper>
@@ -78,7 +84,7 @@ export const FormToPray = ({ handlePrayedText, handleAfterPraying }: FormToPrayP
 const Wrapper = styled.form``;
 
 interface FormProps {
-  bgColor: string;
+  bgColor: TanzakuColor;
 }
 
 const FormTanzaku = styled.div<FormProps>`
@@ -89,7 +95,7 @@ const FormTanzaku = styled.div<FormProps>`
   justify-content: space-around;
   padding: 2rem;
   border: 1px solid ${colorsData.blue.hex};
-  background-color: ${({ bgColor }) => bgColor};
+  background-color: ${({ bgColor }) => deriveHexFromName(bgColor)};
 `;
 
 const RadioButtonLabel = styled.label`
