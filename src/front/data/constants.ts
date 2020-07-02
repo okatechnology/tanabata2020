@@ -38,3 +38,13 @@ export const tanzakuColors: TanzakuColor[] = [
   'purple',
   'yellow',
 ];
+
+export const breakpoint = {
+  sp: 480,
+  tb: 900,
+};
+
+export const mediaQuery = {
+  sp: `@media screen and (max-width: ${breakpoint.sp}px)`,
+  tb: `@media screen and (max-width: ${breakpoint.tb}px)`,
+};

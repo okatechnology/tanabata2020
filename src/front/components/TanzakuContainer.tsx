@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Tanzaku } from './Tanzaku';
-import { TANZAKU_HEIGHT, TANZAKU_WIDTH } from '../data/constants';
+import { TANZAKU_HEIGHT, TANZAKU_WIDTH, mediaQuery } from '../data/constants';
 import { getTanzaku } from '../utils/accessToApi';
 
 interface TanzakuContainerProps {
@@ -32,6 +32,12 @@ const Wrapper = styled.div`
   height: 100vh;
   padding: ${TANZAKU_HEIGHT / 2}px ${TANZAKU_WIDTH + TANZAKU_WIDTH}px
     ${TANZAKU_HEIGHT / 2 + TANZAKU_HEIGHT}px ${TANZAKU_WIDTH}px;
+
+  ${mediaQuery.sp} {
+    height: 200vh;
+    padding: ${TANZAKU_HEIGHT / 2 - 10}px ${TANZAKU_WIDTH + TANZAKU_WIDTH - 30}px
+      ${TANZAKU_HEIGHT / 2 + TANZAKU_HEIGHT - 10}px ${TANZAKU_WIDTH - 30}px;
+  }
 `;
 
 const AppearArea = styled.div`

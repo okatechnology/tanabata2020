@@ -81,7 +81,9 @@ const Wrapper = styled.div<WrapperProps>`
   transition: transform 0.2s;
   justify-content: center;
 
-  :hover {
+  :hover,
+  :active,
+  :focus {
     transform: scale(1.8);
   }
 `;
