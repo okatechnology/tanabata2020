@@ -6,9 +6,9 @@ use tanabatadb;
 
 create table tanzaku_info (
   id int auto_increment not null primary key,
-  name varchar(255) not null,
-  contents varchar(2240) not null,
-  color varchar(255) not null
+  name varchar(63) not null,
+  contents varchar(123) not null,
+  color varchar(31) not null
 );
 
 create user user identified by 'password';
