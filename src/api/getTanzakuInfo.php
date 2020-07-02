@@ -15,19 +15,8 @@ try {
     'password'
   );
 
-  $stmt = $dbh->prepare(
-    'SELECT count(*) from tanzaku_info'
-  );
+  $stmt = $dbh->prepare('SELECT * from (SELECT * from tanzaku_info order by id desc limit 100) as A order by id;');
   $stmt->execute();
-  $amount = $stmt->fetch(PDO::FETCH_ASSOC)['count(*)'];
-  if ($amount > 100) {
-    $startId = $amount - 99;
-  } else {
-    $startId = 1;
-  }
-
-  $stmt = $dbh->prepare('SELECT * from tanzaku_info where id >= ?');
-  $stmt->execute([$startId]);
 
   $counter = counter();
 
