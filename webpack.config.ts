@@ -35,7 +35,14 @@ export default (): Configuration => ({
       },
       {
         test: /\.(png|php)$/i,
-        use: ['file-loader'],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
