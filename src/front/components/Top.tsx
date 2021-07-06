@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import sasaImg from '../../../assets/sasa.png';
 import styled from 'styled-components';
 import { TanzakuContainer } from './TanzakuContainer';

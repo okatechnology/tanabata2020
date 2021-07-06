@@ -1,4 +1,3 @@
-import React from 'react';
 import { FormToPray } from './FormToPray';
 import styled from 'styled-components';
 import hikoboshiImg from '../../../assets/hikoboshi.png';

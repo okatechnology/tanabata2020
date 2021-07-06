@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { TANZAKU_HEIGHT, TANZAKU_WIDTH, colorsData } from '../data/constants';
 import { getRandomInt } from '../utils/getRandomInt';
