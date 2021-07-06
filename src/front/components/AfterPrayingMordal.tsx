@@ -16,7 +16,10 @@ export const AfterPrayingMordal = ({
   handleAfterPraying,
 }: AfterPrayMordalProps) => {
   const tweetText = useMemo(
-    () => encodeURI(`「${prayedText}」と願いました\n${document.location}`),
+    () =>
+      encodeURI(
+        `「${prayedText}」と願いました\n${document.location}\n#七夕オンライン2021`,
+      ),
     [prayedText],
   );
 
@@ -39,7 +42,9 @@ export const AfterPrayingMordal = ({
           <RemoveButtonPart />
         </RemoveButton>
         <MordalText>願いは届きました…</MordalText>
-        <TweetButton href={`${TWEET_URL}${tweetText}`}>ツイートする</TweetButton>
+        <TweetButton href={`${TWEET_URL}${tweetText}`}>
+          ツイートする
+        </TweetButton>
       </Mordal>
     </Wrapper>
   );
