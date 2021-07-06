@@ -4,7 +4,7 @@ interface PrayResult {
   success: boolean;
 }
 
-const API_BASE_URL = 'https://okatechnology.tonkotsu.jp/tanabata'
+const API_BASE_URL = 'https://okatechnology.tonkotsu.jp/tanabata';
 
 export const prayToApi = async (prayData: PrayPost) => {
   const result = await fetch(`${API_BASE_URL}/registerTanzaku.php`, {
