@@ -1,10 +1,8 @@
 <?php
 require "initEnv.php";
 init_env();
-echo (getenv('ENV_TEST'));
 
-function counter()
-{
+function counter() {
   $num = 0;
   return function () use (&$num) {
     return $num++;
@@ -13,7 +11,7 @@ function counter()
 
 try {
   $dbh = new PDO(
-    "mysql:host={$i(getenv('MYSQL_HOST_NAME'))};dbname={$i(getenv('MYSQL_DB_NAME'))}",
+    "mysql:host=" . getenv('MYSQL_HOST_NAME') . ";dbname=" . getenv('MYSQL_DB_NAME'),
     getenv("MYSQL_USER"),
     getenv("MYSQL_PASSWORD")
   );

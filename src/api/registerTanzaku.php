@@ -1,7 +1,6 @@
 <?php
 require "initEnv.php";
 init_env();
-echo (getenv('ENV_TEST'));
 
 /**
  * @param string $name;
@@ -20,7 +19,7 @@ if ($color != 'green' && $color != 'lightBlue' && $color != 'pink' && $color != 
   $result['errorPoint'] = 2;
 } else {
   $dbh = new PDO(
-    "mysql:host={$i(getenv('MYSQL_HOST_NAME'))};dbname={$i(getenv('MYSQL_DB_NAME'))}",
+    "mysql:host=".getenv('MYSQL_HOST_NAME').";dbname=".getenv('MYSQL_DB_NAME'),
     getenv("MYSQL_USER"),
     getenv("MYSQL_PASSWORD")
   );
