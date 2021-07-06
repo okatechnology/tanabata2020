@@ -4,8 +4,10 @@ interface PrayResult {
   success: boolean;
 }
 
+const API_BASE_URL = 'https://okatechnology.tonkotsu.jp/tanabata'
+
 export const prayToApi = async (prayData: PrayPost) => {
-  const result = await fetch(`${process.env['API_BASE_URL'] ?? ''}/registerTanzaku.php`, {
+  const result = await fetch(`${API_BASE_URL}/registerTanzaku.php`, {
     method: 'POST',
     body: JSON.stringify(prayData),
   });
@@ -15,6 +17,6 @@ export const prayToApi = async (prayData: PrayPost) => {
 interface GetTanzakuResult extends Array<Tanzaku> {}
 
 export const getTanzaku = async () => {
-  const result = await fetch(`${process.env['API_BASE_URL'] ?? ''}/getTanzakuInfo.php`);
+  const result = await fetch(`${API_BASE_URL}/getTanzakuInfo.php`);
   return result.json() as Promise<GetTanzakuResult>;
 };
