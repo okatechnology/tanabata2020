@@ -10,9 +10,9 @@ function counter()
 
 try {
   $dbh = new PDO(
-    'mysql:host=db;dbname=tanabatadb',
-    'user',
-    'password'
+    "mysql:host={$i(getenv('MYSQL_HOST_NAME'))};dbname={$i(getenv('MYSQL_DB_NAME'))}",
+    getenv("MYSQL_USER"),
+    getenv("MYSQL_PASSWORD")
   );
 
   $stmt = $dbh->prepare('SELECT * from (SELECT * from tanzaku_info order by id desc limit 100) as A order by id;');

@@ -1,6 +1,3 @@
-import registerTanzakuApi from '../../api/registerTanzaku.php';
-import getTanzakuApi from '../../api/getTanzakuInfo.php';
-
 interface PrayPost extends Omit<Tanzaku, 'id'> {}
 
 interface PrayResult {
@@ -8,7 +5,7 @@ interface PrayResult {
 }
 
 export const prayToApi = async (prayData: PrayPost) => {
-  const result = await fetch(registerTanzakuApi, {
+  const result = await fetch(`${process.env['API_BASE_URL'] ?? ''}/registerTanzaku.php`, {
     method: 'POST',
     body: JSON.stringify(prayData),
   });
@@ -18,6 +15,6 @@ export const prayToApi = async (prayData: PrayPost) => {
 interface GetTanzakuResult extends Array<Tanzaku> {}
 
 export const getTanzaku = async () => {
-  const result = await fetch(getTanzakuApi);
+  const result = await fetch(`${process.env['API_BASE_URL'] ?? ''}/getTanzakuInfo.php`);
   return result.json() as Promise<GetTanzakuResult>;
 };

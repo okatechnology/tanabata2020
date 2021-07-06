@@ -16,11 +16,10 @@ if ($color != 'green' && $color != 'lightBlue' && $color != 'pink' && $color != 
   $result['success'] = false;
   $result['errorPoint'] = 2;
 } else {
-
   $dbh = new PDO(
-    'mysql:host=db;dbname=tanabatadb',
-    'user',
-    'password'
+    "mysql:host={$i(getenv('MYSQL_HOST_NAME'))};dbname={$i(getenv('MYSQL_DB_NAME'))}",
+    getenv("MYSQL_USER"),
+    getenv("MYSQL_PASSWORD")
   );
   $stmt = $dbh->prepare(
     "INSERT into tanzaku_info (name, contents, color) values (?, ?, ?);"

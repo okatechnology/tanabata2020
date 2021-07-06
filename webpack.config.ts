@@ -5,6 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default (): Configuration => ({
+  mode: process.env['NODE_ENV'] === 'production' ? 'production' : 'development',
   optimization: {
     minimizer: [new TerserPlugin({})],
   },
